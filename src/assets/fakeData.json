@@ -1,0 +1,169 @@
+[
+  {
+    "country": "Bangladesh",
+    "state": [
+      {
+        "name": "Dhaka",
+        "district": [
+          {
+            "name": "Dhaka"
+          },
+          {
+            "name": "Gazipur"
+          },
+          {
+            "name": "Kishoreganj"
+          },
+          {
+            "name": "Manikganj"
+          },
+          {
+            "name": "Munshiganj"
+          },
+          {
+            "name": "Narayanganj"
+          },
+          {
+            "name": "Narsingdi"
+          },
+          {
+            "name": "Tangail"
+          }
+        ]
+      },
+      {
+        "name": "Chattogram"
+      },
+      {
+        "name": "Mymensingh",
+        "district": [
+          {
+            "name": "Mymensingh"
+          },
+          {
+            "name": "Jamalpur"
+          },
+          {
+            "name": "Netrokona",
+            "city": [
+              {
+                "name": "Netrokona Sadar Upazila"
+              },
+              {
+                "name": "Atpara"
+              },
+              {
+                "name": "Barhatta"
+              },
+              {
+                "name": "Kendua",
+                "town": [
+                  {
+                    "name": "Asujia"
+                  },
+                  {
+                    "name": "Dolpa"
+                  },
+                  {
+                    "name": "kandiura",
+                    "zipcode": [
+                      {
+                        "name": "1234"
+                      },
+                      {
+                        "name": "4533",
+                        "village": [
+                          {
+                            "name": "Komolpur"
+                          },
+                          {
+                            "name": "Sholop"
+                          },
+                          {
+                            "name": "Adompur"
+                          },
+                          {
+                            "name": "Batta"
+                          },
+                          {
+                            "name": "Shilimpur"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "3978"
+                      },
+                      {
+                        "name": "2323"
+                      },
+                      {
+                        "name": "2345"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Sandikona"
+                  },
+                  {
+                    "name": "Goraduba"
+                  },
+                  {
+                    "name": "Maska"
+                  }
+                ]
+              },
+              {
+                "name": "Durgapur"
+              },
+              {
+                "name": "Khaliajuri"
+              },
+              {
+                "name": "Kalmakanda"
+              },
+              {
+                "name": "Madan"
+              },
+              {
+                "name": "Mohanganj"
+              },
+              {
+                "name": "Purbadhala"
+              }
+            ]
+          },
+          {
+            "name": "Sherpur"
+          }
+        ]
+      },
+      {
+        "name": "Barishal"
+      },
+      {
+        "name": "Khulna"
+      },
+      {
+        "name": "Rajshahi"
+      },
+      {
+        "name": "Rangpur"
+      },
+      {
+        "name": "Sylhet"
+      }
+    ]
+  },
+  {
+    "country": "China",
+    "state": []
+  },
+  {
+    "country": "India",
+    "state": []
+  },
+  {
+    "country": "Syria",
+    "state": []
+  }
+]

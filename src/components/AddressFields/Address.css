@@ -1,0 +1,118 @@
+.address {
+  border: 1px solid;
+  width: 100%;
+  padding: 1rem;
+}
+
+.address__title {
+  text-transform: uppercase;
+}
+
+.form-item {
+  margin-bottom: 0.5rem;
+}
+
+.form-item > label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.default-input {
+  display: block;
+  width: 100%;
+  padding: 0.2rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.select-wrapper {
+  position: relative;
+}
+
+.select-input {
+  position: relative;
+}
+.select-input > input {
+  cursor: pointer;
+}
+.select-input::after {
+  position: absolute;
+  color: #495057;
+  content: "▼";
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%) scale(0.7);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.select-open::after{
+  color: rgb(94, 132, 238);
+  transform: translateY(-50%) scale(0.7) rotate(180deg);
+}
+
+.select-dropdown {
+  border: 1px solid #ced4da;
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  padding-top: 0.3rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  animation-name: animateDropdown;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  transform-origin: top center;
+  z-index: 10;
+}
+/* .show-top{
+  top: -250px;
+}
+.show-bottom{
+  bottom: -250px;
+} */
+
+@keyframes animateDropdown {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+.select-dropdown ul {
+  margin: 0;
+  padding: 0;
+  max-height: 200px;
+  overflow: auto;
+}
+.select-dropdown li {
+  width: 100%;
+  list-style: none;
+  cursor: pointer;
+  padding: 0.3rem;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+  border-radius: 5px;
+  color: #495057;
+  padding-left: 1rem;
+}
+.select-dropdown li:first-child {
+  font-weight: 400;
+  cursor: auto;
+}
+.select-dropdown li:not(.readOnly-option):hover {
+  background-color: lightgray;
+  color: rgb(10, 226, 10);
+  font-weight: 600;
+}
+.active-border {
+  border: 1px solid rgb(94, 132, 238);
+}
