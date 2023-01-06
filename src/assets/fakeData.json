@@ -1,12 +1,122 @@
 [
   {
-    "country": "Bangladesh",
+    "name": "Bangladesh",
     "state": [
       {
         "name": "Dhaka",
         "district": [
           {
-            "name": "Dhaka"
+            "name": "Dhaka",
+            "city": [
+              {
+                "name": "Dhaka Cantt",
+                "union": [
+                  {
+                    "name": "namapara",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "village one"
+                          },
+                          {
+                            "name": "village two"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "village three"
+                          },
+                          {
+                            "name": "village four"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "manikdi",
+                    "zipcode": []
+                  }
+                ]
+              },
+              {
+                "name": "Dhamrai",
+                "union": [
+                  {
+                    "name": "union one",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "village one"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Dhanmondi",
+                "union": [
+                  {
+                    "name": "union one",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "village one"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Gulshan",
+                "union": [
+                  {
+                    "name": "union one",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "village one"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Jatrabari",
+                "union": [
+                  {
+                    "name": "union one",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "village one"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           },
           {
             "name": "Gazipur"
@@ -155,15 +265,15 @@
     ]
   },
   {
-    "country": "China",
+    "name": "China",
     "state": []
   },
   {
-    "country": "India",
+    "name": "India",
     "state": []
   },
   {
-    "country": "Syria",
+    "name": "Syria",
     "state": []
   }
 ]

@@ -1,20 +1,23 @@
-import { useForm, FormProvider } from "react-hook-form";
+import { useForm, FormProvider, useWatch } from "react-hook-form";
 
 import "./Address.css";
 import SelectComponent from "./SelectComponent";
 import jsonData from "./../../assets/fakeData.json";
-console.log(jsonData);
+import { useEffect } from "react";
 
 const AddressFields = ({ billState }) => {
   const methods = useForm();
   const {
     register,
-    handleSubmit,
     formState: { errors },
+    getValues,watch,control
   } = methods;
 
+
+  const data = watch();
+  console.log(data);
+
   return (
-    <FormProvider {...methods}>
       <form className="address">
         <h2 className="address__title">
           {billState ? (
@@ -28,17 +31,18 @@ const AddressFields = ({ billState }) => {
         <div className="form-item">
           <label htmlFor="attention">Attention</label>
           <input
-            type="email"
+            type="text"
             id="attention"
             className="default-input"
             placeholder="Enter Persons name"
+            {...register("attention")}
           />
         </div>
         <div className="form-item">
           <label htmlFor="country">Country</label>
-          <SelectComponent itemName={"country"} options={jsonData} />
+          <SelectComponent control={control} name={"country"} options={jsonData} />
         </div>
-        <div className="form-item">
+        {/* <div className="form-item">
           <label htmlFor="country">Division/State</label>
           <SelectComponent itemName={"state"} />
         </div>
@@ -61,9 +65,8 @@ const AddressFields = ({ billState }) => {
         <div className="form-item">
           <label htmlFor="country">Street Address/Village</label>
           <SelectComponent itemName={"village"} />
-        </div>
+        </div> */}
       </form>
-    </FormProvider>
   );
 };
 
