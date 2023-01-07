@@ -4,6 +4,7 @@ import { useController, useWatch } from "react-hook-form";
 const SelectComponent = ({ options, name, control }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
+
   const [query, setQuery] = useState("");
   const [data, setData] = useState([]);
   const dropdownRef = useRef(null);
@@ -19,24 +20,31 @@ const SelectComponent = ({ options, name, control }) => {
 
   useEffect(() => {
     document.addEventListener("click", (e) => {
-      if (selectRef && !selectRef.current.contains(e.target)) {
+      if (selectRef && !selectRef?.current?.contains(e.target)) {
         setShowDropdown(false);
       }
     });
-    setData(options);
   }, [selectRef]);
 
   useEffect(() => {
     setData(
-      options.filter((option) =>
+      options?.filter((option) =>
         option.name.toLowerCase().includes(query.toLowerCase())
       )
     );
-  }, [query]);
+  }, [query, options]);
+
+  useEffect(() => {
+    setSelectedOption("");
+  }, [options]);
 
   return (
     <div className="select-wrapper" ref={selectRef}>
-      <div className={`select-input ${showDropdown && "select-open"}`}>
+      <div
+        className={`select-input ${showDropdown && "select-open"} ${
+          options && "select-arrow"
+        }`}
+      >
         <input
           onClick={() => {
             setShowDropdown(!showDropdown);
@@ -49,6 +57,7 @@ const SelectComponent = ({ options, name, control }) => {
           placeholder="Please Search"
           value={selectedOption}
           readOnly
+          disabled={!options}
           className={`default-input ${showDropdown && "active-border"}`}
         />
       </div>

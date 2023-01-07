@@ -32,6 +32,9 @@
   outline: none;
   transition: all 0.3s ease;
 }
+.default-input:disabled{
+  opacity: 0.5;
+}
 .select-wrapper {
   position: relative;
 }
@@ -42,7 +45,7 @@
 .select-input > input {
   cursor: pointer;
 }
-.select-input::after {
+.select-arrow::after {
   position: absolute;
   color: #495057;
   content: "▼";
