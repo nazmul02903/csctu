@@ -1,9 +1,10 @@
-import { useForm, FormProvider, useWatch } from "react-hook-form";
-
+import { useForm } from "react-hook-form";
 import "./Address.css";
 import SelectComponent from "./SelectComponent";
 import jsonData from "./../../assets/fakeData.json";
 import { useEffect, useState } from "react";
+import downLoadIcon from "../../assets/icon/downloadIcon.svg";
+import { GlobalStates } from "../../context";
 
 const AddressFields = ({ billState }) => {
   const [division, setDivision] = useState(null);
@@ -13,54 +14,43 @@ const AddressFields = ({ billState }) => {
   const [zip, setZip] = useState(null);
   const [village, setVillage] = useState(null);
 
+  const { formState, setFormState, setShowDefaultVal, showDefaultVal } =
+    GlobalStates();
   const methods = useForm();
-  const {
-    register,
-    formState: { errors },
-    reset,
-    watch,
-    resetField,
-    control,
-  } = methods;
-
+  const { register, watch, control } = methods;
   const formData = watch();
-
+  //useeffects.........................
   useEffect(() => {
     if (formData.country) {
       setDivision(
         jsonData?.filter((e) => e.name === formData.country)[0]?.state
       );
     }
-    if (division) {
-      setDistrict(
-        division?.filter((e) => e.name === formData.state)[0]?.district
-      );
-    }
-    if (district) {
-      setCity(district?.filter((e) => e.name === formData.district)[0]?.city);
-    }
-    if (city) {
-      setUnion(city?.filter((e) => e.name === formData.city)[0]?.union);
-    }
-    if (union) {
-      setZip(union?.filter((e) => e.name === formData.union)[0]?.zipcode);
-    }
-    if (zip) {
-      setVillage(zip?.filter((e) => e.name === formData.zip)[0]?.villages);
-    }
+    setDistrict(
+      division?.filter((e) => e.name === formData.state)[0]?.district
+    );
+    setCity(district?.filter((e) => e.name === formData.district)[0]?.city);
+    setUnion(city?.filter((e) => e.name === formData.city)[0]?.union);
+    setZip(union?.filter((e) => e.name === formData.union)[0]?.zipcode);
+    setVillage(zip?.filter((e) => e.name === formData.zip)[0]?.villages);
   }, [formData]);
 
   return (
-    <form className="address">
-      <h2 className="address__title">
+    <form className="address" onBlur={() => setFormState(formData)}>
+      <div className="address__title">
         {billState ? (
-          "billing Address"
+          <h3>billing Address</h3>
         ) : (
-          <>
-            Shipping Address <button>Copy Billing Address</button>
-          </>
+          <div className="shipping-title">
+            <h3> Shipping Address</h3>{" "}
+            <div className="copy-btn" onClick={() => setShowDefaultVal(true)}>
+              {" "}
+              <img src={downLoadIcon} alt="" width={22} height={22} /> Copy
+              Billing Address
+            </div>
+          </div>
         )}
-      </h2>
+      </div>
       <div className="form-item">
         <label htmlFor="attention">Attention</label>
         <input
@@ -68,12 +58,14 @@ const AddressFields = ({ billState }) => {
           id="attention"
           className="default-input"
           placeholder="Enter Persons name"
+          defaultValue={showDefaultVal ? formState.attention : ""}
           {...register("attention")}
         />
       </div>
       <div className="form-item">
         <label htmlFor="country">Country</label>
         <SelectComponent
+          defVal={showDefaultVal ? formState.country : ""}
           control={control}
           name={"country"}
           options={jsonData}
@@ -81,11 +73,17 @@ const AddressFields = ({ billState }) => {
       </div>
       <div className="form-item">
         <label htmlFor="country">Division/State</label>
-        <SelectComponent control={control} name={"state"} options={division} />
+        <SelectComponent
+          defVal={showDefaultVal ? formState.state : ""}
+          control={control}
+          name={"state"}
+          options={division}
+        />
       </div>
       <div className="form-item">
         <label htmlFor="country">District</label>
         <SelectComponent
+        defVal={showDefaultVal ? formState.district : ""}
           control={control}
           name={"district"}
           options={district}
@@ -93,19 +91,46 @@ const AddressFields = ({ billState }) => {
       </div>
       <div className="form-item">
         <label htmlFor="country">City/Sub District/Thana</label>
-        <SelectComponent control={control} name={"city"} options={city} />
+        <SelectComponent defVal={showDefaultVal ? formState.city : ""} control={control} name={"city"} options={city} />
       </div>
       <div className="form-item">
         <label htmlFor="country">Union/Area/Town</label>
-        <SelectComponent control={control} name={"union"} options={union} />
+        <SelectComponent defVal={showDefaultVal ? formState.union : ""} control={control} name={"union"} options={union} />
       </div>
       <div className="form-item">
         <label htmlFor="country">Zip Code</label>
-        <SelectComponent control={control} name={"zip"} options={zip} />
+        <SelectComponent defVal={showDefaultVal ? formState.zip : ""} control={control} name={"zip"} options={zip} />
       </div>
       <div className="form-item">
         <label htmlFor="country">Village</label>
-        <SelectComponent control={control} name={"village"} options={village} />
+        <SelectComponent defVal={showDefaultVal ? formState.village : ""} control={control} name={"village"} options={village} />
+      </div>
+      <div className="form-item">
+        <label htmlFor="house">House</label>
+        <input
+          type="text"
+          id="house"
+          className="default-input"
+          {...register("house")}
+        />
+      </div>
+      <div className="form-item">
+        <label htmlFor="phone">Phone</label>
+        <input
+          type="tel"
+          id="phone"
+          className="default-input"
+          {...register("phone")}
+        />
+      </div>
+      <div className="form-item">
+        <label htmlFor="phone">Fax</label>
+        <input
+          type="tel"
+          id="fax"
+          className="default-input"
+          {...register("fax")}
+        />
       </div>
     </form>
   );

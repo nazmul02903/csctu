@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { useController, useWatch } from "react-hook-form";
+import { useController } from "react-hook-form";
+import { GlobalStates } from "../../context";
 
-const SelectComponent = ({ options, name, control }) => {
+const SelectComponent = ({ options, name, control, defVal }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
 
@@ -11,12 +12,12 @@ const SelectComponent = ({ options, name, control }) => {
   const selectRef = useRef(null);
   const htmlSelectRef = useRef(null);
 
+  const { formState, showDefaultVal } = GlobalStates();
+
   const { field } = useController({
     control,
     name,
   });
-
-  useWatch({ control, name: name });
 
   useEffect(() => {
     document.addEventListener("click", (e) => {
@@ -38,6 +39,12 @@ const SelectComponent = ({ options, name, control }) => {
     setSelectedOption("");
   }, [options]);
 
+  useEffect(() => {
+    if (showDefaultVal) {
+      setSelectedOption(defVal);
+    }
+  }, [showDefaultVal]);
+
   return (
     <div className="select-wrapper" ref={selectRef}>
       <div
@@ -54,10 +61,10 @@ const SelectComponent = ({ options, name, control }) => {
           onFocus={field.onChange}
           onChange={field.onChange}
           ref={htmlSelectRef}
+          defaultValue={selectedOption}
           placeholder="Please Search"
-          value={selectedOption}
           readOnly
-          disabled={!options}
+          disabled={!options && !defVal}
           className={`default-input ${showDropdown && "active-border"}`}
         />
       </div>
@@ -73,7 +80,7 @@ const SelectComponent = ({ options, name, control }) => {
           />
           <ul>
             <li className="readOnly-option">Search for select</li>
-            {data.map((item, i) => (
+            {data?.map((item, i) => (
               <li
                 className={`${selectedOption === item.name && "disable-list"}`}
                 key={i}
