@@ -37,13 +37,13 @@ const SelectComponent = ({ options, name, control, defVal }) => {
 
   useEffect(() => {
     setSelectedOption("");
-  }, [options]);
+  }, [options])
 
   useEffect(() => {
     if (showDefaultVal) {
       setSelectedOption(defVal);
     }
-  }, [showDefaultVal]);
+  }, [showDefaultVal,defVal]);
 
   return (
     <div className="select-wrapper" ref={selectRef}>
