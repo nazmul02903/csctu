@@ -17,7 +17,7 @@ const AddressFields = ({ billState }) => {
   const { formState, setFormState, setShowDefaultVal, showDefaultVal } =
     GlobalStates();
   const methods = useForm();
-  const { register, watch, control, resetField } = methods;
+  const { register, watch, control } = methods;
   const formData = watch();
   
   
@@ -33,8 +33,8 @@ const AddressFields = ({ billState }) => {
     setCity(district?.filter((e) => e.name === formData.district)[0]?.city);
     setUnion(city?.filter((e) => e.name === formData.city)[0]?.union);
     setZip(union?.filter((e) => e.name === formData.union)[0]?.zipcode);
-    setVillage(zip?.filter((e) => e.name === formData.zip)[0]?.villages);
-  }, [formData]);
+    setVillage(zip?.filter((e) => e.name === formData.zip)[0]?.villages)
+  }, [formData,city, district,union, zip, village,division]);
 
   return (
     <form className="address" onBlur={() => {
