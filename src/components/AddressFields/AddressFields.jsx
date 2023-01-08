@@ -17,9 +17,10 @@ const AddressFields = ({ billState }) => {
   const { formState, setFormState, setShowDefaultVal, showDefaultVal } =
     GlobalStates();
   const methods = useForm();
-  const { register, watch, control } = methods;
+  const { register, watch, control, resetField } = methods;
   const formData = watch();
-  //useeffects.........................
+  
+  
   useEffect(() => {
     if (formData.country) {
       setDivision(
@@ -36,14 +37,22 @@ const AddressFields = ({ billState }) => {
   }, [formData]);
 
   return (
-    <form className="address" onBlur={() => setFormState(formData)}>
+    <form className="address" onBlur={() => {
+      setShowDefaultVal(false)
+      setFormState(formData)
+    }}>
       <div className="address__title">
         {billState ? (
           <h3>billing Address</h3>
         ) : (
           <div className="shipping-title">
             <h3> Shipping Address</h3>{" "}
-            <div className="copy-btn" onClick={() => setShowDefaultVal(true)}>
+            <div
+              className="copy-btn"
+              onClick={() => {
+                setShowDefaultVal(true);
+              }}
+            >
               {" "}
               <img src={downLoadIcon} alt="" width={22} height={22} /> Copy
               Billing Address
@@ -83,7 +92,7 @@ const AddressFields = ({ billState }) => {
       <div className="form-item">
         <label htmlFor="country">District</label>
         <SelectComponent
-        defVal={showDefaultVal ? formState.district : ""}
+          defVal={showDefaultVal ? formState.district : ""}
           control={control}
           name={"district"}
           options={district}
@@ -91,25 +100,46 @@ const AddressFields = ({ billState }) => {
       </div>
       <div className="form-item">
         <label htmlFor="country">City/Sub District/Thana</label>
-        <SelectComponent defVal={showDefaultVal ? formState.city : ""} control={control} name={"city"} options={city} />
+        <SelectComponent
+          defVal={showDefaultVal ? formState.city : ""}
+          control={control}
+          name={"city"}
+          options={city}
+        />
       </div>
       <div className="form-item">
         <label htmlFor="country">Union/Area/Town</label>
-        <SelectComponent defVal={showDefaultVal ? formState.union : ""} control={control} name={"union"} options={union} />
+        <SelectComponent
+          defVal={showDefaultVal ? formState.union : ""}
+          control={control}
+          name={"union"}
+          options={union}
+        />
       </div>
       <div className="form-item">
         <label htmlFor="country">Zip Code</label>
-        <SelectComponent defVal={showDefaultVal ? formState.zip : ""} control={control} name={"zip"} options={zip} />
+        <SelectComponent
+          defVal={showDefaultVal ? formState.zip : ""}
+          control={control}
+          name={"zip"}
+          options={zip}
+        />
       </div>
       <div className="form-item">
-        <label htmlFor="country">Village</label>
-        <SelectComponent defVal={showDefaultVal ? formState.village : ""} control={control} name={"village"} options={village} />
+        <label htmlFor="country">Street Address/Village</label>
+        <SelectComponent
+          defVal={showDefaultVal ? formState.village : ""}
+          control={control}
+          name={"village"}
+          options={village}
+        />
       </div>
       <div className="form-item">
         <label htmlFor="house">House</label>
         <input
           type="text"
           id="house"
+          defaultValue={showDefaultVal ? formState.house : ""}
           className="default-input"
           {...register("house")}
         />
@@ -120,6 +150,7 @@ const AddressFields = ({ billState }) => {
           type="tel"
           id="phone"
           className="default-input"
+          defaultValue={showDefaultVal ? formState.phone : ""}
           {...register("phone")}
         />
       </div>
@@ -128,6 +159,7 @@ const AddressFields = ({ billState }) => {
         <input
           type="tel"
           id="fax"
+          defaultValue={showDefaultVal ? formState.fax : ""}
           className="default-input"
           {...register("fax")}
         />

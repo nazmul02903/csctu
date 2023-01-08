@@ -5,19 +5,19 @@ import { GlobalStates } from "../../context";
 const SelectComponent = ({ options, name, control, defVal }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
-
   const [query, setQuery] = useState("");
   const [data, setData] = useState([]);
   const dropdownRef = useRef(null);
   const selectRef = useRef(null);
-  const htmlSelectRef = useRef(null);
+  const selectInputRef = useRef(null);
 
-  const { formState, showDefaultVal } = GlobalStates();
 
+  const { showDefaultVal } = GlobalStates();
   const { field } = useController({
     control,
     name,
   });
+
 
   useEffect(() => {
     document.addEventListener("click", (e) => {
@@ -60,7 +60,7 @@ const SelectComponent = ({ options, name, control, defVal }) => {
           onBlur={field.onBlur}
           onFocus={field.onChange}
           onChange={field.onChange}
-          ref={htmlSelectRef}
+          ref={selectInputRef}
           defaultValue={selectedOption}
           placeholder="Please Search"
           readOnly
@@ -89,7 +89,7 @@ const SelectComponent = ({ options, name, control, defVal }) => {
                   setSelectedOption(e.target.getAttribute("value"));
                   setShowDropdown(false);
                   setTimeout(() => {
-                    htmlSelectRef.current.focus();
+                    selectInputRef.current.focus();
                   }, 10);
                   setData(options);
                 }}

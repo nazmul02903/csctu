@@ -6,7 +6,7 @@
         "name": "Dhaka",
         "district": [
           {
-            "name": "Dhaka",
+            "name": "Dhaka Zilla",
             "city": [
               {
                 "name": "Dhaka Cantt",
@@ -18,10 +18,10 @@
                         "name": "1234",
                         "villages": [
                           {
-                            "name": "village one"
+                            "name": "NamaparaOne"
                           },
                           {
-                            "name": "village two"
+                            "name": "NamaparaTwo"
                           }
                         ]
                       },
@@ -29,10 +29,10 @@
                         "name": "4321",
                         "villages": [
                           {
-                            "name": "village three"
+                            "name": "NamaParaThree"
                           },
                           {
-                            "name": "village four"
+                            "name": "NamaParaFour"
                           }
                         ]
                       }
@@ -40,21 +40,26 @@
                   },
                   {
                     "name": "manikdi",
-                    "zipcode": []
-                  }
-                ]
-              },
-              {
-                "name": "Dhamrai",
-                "union": [
-                  {
-                    "name": "union one",
                     "zipcode": [
                       {
                         "name": "1234",
                         "villages": [
                           {
-                            "name": "village one"
+                            "name": "ManikDiOne"
+                          },
+                          {
+                            "name": "ManikDiTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "ManikDiThree"
+                          },
+                          {
+                            "name": "ManikDiFour"
                           }
                         ]
                       }
@@ -63,52 +68,57 @@
                 ]
               },
               {
-                "name": "Dhanmondi",
+                "name": "Savar",
                 "union": [
                   {
-                    "name": "union one",
+                    "name": "Simulia",
                     "zipcode": [
                       {
                         "name": "1234",
                         "villages": [
                           {
-                            "name": "village one"
+                            "name": "SimuLiaOne"
+                          },
+                          {
+                            "name": "SimuLiaTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "SimuLiaThree"
+                          },
+                          {
+                            "name": "SimuLiaFour"
                           }
                         ]
                       }
                     ]
-                  }
-                ]
-              },
-              {
-                "name": "Gulshan",
-                "union": [
+                  },
                   {
-                    "name": "union one",
+                    "name": "DhamSuna",
                     "zipcode": [
                       {
                         "name": "1234",
                         "villages": [
                           {
-                            "name": "village one"
+                            "name": "DhamsonaOne"
+                          },
+                          {
+                            "name": "DhamsonaTwo"
                           }
                         ]
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "name": "Jatrabari",
-                "union": [
-                  {
-                    "name": "union one",
-                    "zipcode": [
+                      },
                       {
-                        "name": "1234",
+                        "name": "4321",
                         "villages": [
                           {
-                            "name": "village one"
+                            "name": "DhamsonaThree"
+                          },
+                          {
+                            "name": "DhamsonaFour"
                           }
                         ]
                       }
@@ -119,161 +129,1012 @@
             ]
           },
           {
-            "name": "Gazipur"
-          },
-          {
-            "name": "Kishoreganj"
-          },
-          {
-            "name": "Manikganj"
-          },
-          {
-            "name": "Munshiganj"
-          },
-          {
-            "name": "Narayanganj"
-          },
-          {
-            "name": "Narsingdi"
-          },
-          {
-            "name": "Tangail"
-          }
-        ]
-      },
-      {
-        "name": "Chattogram"
-      },
-      {
-        "name": "Mymensingh",
-        "district": [
-          {
-            "name": "Mymensingh"
-          },
-          {
-            "name": "Jamalpur"
-          },
-          {
-            "name": "Netrokona",
+            "name": "GaziPur",
             "city": [
               {
-                "name": "Netrokona Sadar Upazila"
-              },
-              {
-                "name": "Atpara"
-              },
-              {
-                "name": "Barhatta"
-              },
-              {
-                "name": "Kendua",
-                "town": [
+                "name": "Kapasia",
+                "union": [
                   {
-                    "name": "Asujia"
-                  },
-                  {
-                    "name": "Dolpa"
-                  },
-                  {
-                    "name": "kandiura",
+                    "name": "Torgao",
                     "zipcode": [
                       {
-                        "name": "1234"
-                      },
-                      {
-                        "name": "4533",
-                        "village": [
+                        "name": "1234",
+                        "villages": [
                           {
-                            "name": "Komolpur"
+                            "name": "TorgaoOne"
                           },
                           {
-                            "name": "Sholop"
-                          },
-                          {
-                            "name": "Adompur"
-                          },
-                          {
-                            "name": "Batta"
-                          },
-                          {
-                            "name": "Shilimpur"
+                            "name": "TorgaoTwo"
                           }
                         ]
                       },
                       {
-                        "name": "3978"
-                      },
-                      {
-                        "name": "2323"
-                      },
-                      {
-                        "name": "2345"
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "TorgaoThree"
+                          },
+                          {
+                            "name": "TorgaoFour"
+                          }
+                        ]
                       }
                     ]
                   },
                   {
-                    "name": "Sandikona"
-                  },
-                  {
-                    "name": "Goraduba"
-                  },
-                  {
-                    "name": "Maska"
+                    "name": "Rayed",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "RayedOne"
+                          },
+                          {
+                            "name": "RayedTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "RayedThree"
+                          },
+                          {
+                            "name": "RayedFour"
+                          }
+                        ]
+                      }
+                    ]
                   }
                 ]
               },
               {
-                "name": "Durgapur"
-              },
-              {
-                "name": "Khaliajuri"
-              },
-              {
-                "name": "Kalmakanda"
-              },
-              {
-                "name": "Madan"
-              },
-              {
-                "name": "Mohanganj"
-              },
-              {
-                "name": "Purbadhala"
+                "name": "Koliakoi",
+                "union": [
+                  {
+                    "name": "Fulbaria",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "FulbariaOne"
+                          },
+                          {
+                            "name": "FulbariaTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "FulbariaThree"
+                          },
+                          {
+                            "name": "FulbariaFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Mouchak",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "MouChakOne"
+                          },
+                          {
+                            "name": "MouChakTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "MouChakThree"
+                          },
+                          {
+                            "name": "MouChakFour"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           },
           {
-            "name": "Sherpur"
+            "name": "Tangail",
+            "city": [
+              {
+                "name": "Basail",
+                "union": [
+                  {
+                    "name": "Fulki",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "FulkiOne"
+                          },
+                          {
+                            "name": "FulkiTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "FulkiThree"
+                          },
+                          {
+                            "name": "FulkiFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Habla",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "HablaOne"
+                          },
+                          {
+                            "name": "HablaTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "HablaThree"
+                          },
+                          {
+                            "name": "HablaFour"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "GupalPur",
+                "union": [
+                  {
+                    "name": "AlamNagar",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "AlamnagarOne"
+                          },
+                          {
+                            "name": "AlamnagarTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "AlamnagarThree"
+                          },
+                          {
+                            "name": "AlamnagarFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Hadia",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "HadiaOne"
+                          },
+                          {
+                            "name": "HadiaTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "HadiaThree"
+                          },
+                          {
+                            "name": "HadiaFour"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
       {
-        "name": "Barishal"
-      },
-      {
-        "name": "Khulna"
-      },
-      {
-        "name": "Rajshahi"
-      },
-      {
-        "name": "Rangpur"
-      },
-      {
-        "name": "Sylhet"
+        "name": "Chattogram",
+        "district": [
+          {
+            "name": "Feni",
+            "city": [
+              {
+                "name": "Feni Sadar",
+                "union": [
+                  {
+                    "name": "PachGacia",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "PachGaciaOne"
+                          },
+                          {
+                            "name": "PachGaciaTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "PachGaciaThree"
+                          },
+                          {
+                            "name": "PachGaciaFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "DhiarmaPur",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "DhiarmaPurOne"
+                          },
+                          {
+                            "name": "DhiarmaPurTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "DhiarmaPurThree"
+                          },
+                          {
+                            "name": "DhiarmaPurFour"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Sonagaji",
+                "union": [
+                  {
+                    "name": "BagaDana",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "BagaDanaOne"
+                          },
+                          {
+                            "name": "BagaDanaTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "BagaDanaThree"
+                          },
+                          {
+                            "name": "BagaDanaFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Motiganj",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "MotiGanjOne"
+                          },
+                          {
+                            "name": "MotiGanjTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "MotiGanjThree"
+                          },
+                          {
+                            "name": "MotiGanjFour"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Cumilla",
+            "city": [
+              {
+                "name": "Homna",
+                "union": [
+                  {
+                    "name": "MathaVanga",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "MathaVangaOne"
+                          },
+                          {
+                            "name": "MathaVangaTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "MathaVangaThree"
+                          },
+                          {
+                            "name": "MathaVangaFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "AsadPur",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "AsadPurOne"
+                          },
+                          {
+                            "name": "AsadPurTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "AsadPurThree"
+                          },
+                          {
+                            "name": "AsadPurFour"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "DaodKandi",
+                "union": [
+                  {
+                    "name": "DoulatPur",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "DoulatPurOne"
+                          },
+                          {
+                            "name": "DoulatPurTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "DoulatPurThree"
+                          },
+                          {
+                            "name": "DoulatPurFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "SundalPur",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "SundalPurOne"
+                          },
+                          {
+                            "name": "SundalPurTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "SundalPurThree"
+                          },
+                          {
+                            "name": "SundalPurFour"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "name": "China",
-    "state": []
-  },
-  {
     "name": "India",
-    "state": []
-  },
-  {
-    "name": "Syria",
-    "state": []
+    "state": [
+      {
+        "name": "Kalkata",
+        "district": [
+          {
+            "name": "CoochBihar",
+            "city": [
+              {
+                "name": "Dhagram",
+                "union": [
+                  {
+                    "name": "UnionOne",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "DhagramOne"
+                          },
+                          {
+                            "name": "DhagramTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "DhagramThree"
+                          },
+                          {
+                            "name": "DhagramFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "UnionTwo",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "dhagramFive"
+                          },
+                          {
+                            "name": "dhagramSix"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "dhagramSeven"
+                          },
+                          {
+                            "name": "dhagramEight"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "PatGram",
+                "union": [
+                  {
+                    "name": "UnionOne",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "patGramOne"
+                          },
+                          {
+                            "name": "patGramTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "patGramThree"
+                          },
+                          {
+                            "name": "patGramFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "UnionTwo",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "patGramFive"
+                          },
+                          {
+                            "name": "patGramSix"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "patGramSeven"
+                          },
+                          {
+                            "name": "patGramEight"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Darjeeling",
+            "city": [
+              {
+                "name": "Bogalek",
+                "union": [
+                  {
+                    "name": "UnionOne",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "BogalekOne"
+                          },
+                          {
+                            "name": "BogalekTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "BogalekThree"
+                          },
+                          {
+                            "name": "BogalekFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "UnionTwo",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "BogalekFive"
+                          },
+                          {
+                            "name": "BogalekSix"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "BogalekSeven"
+                          },
+                          {
+                            "name": "BogalekEight"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Roma",
+                "union": [
+                  {
+                    "name": "UnionOne",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "RomaOne"
+                          },
+                          {
+                            "name": "RomaTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "RomaThree"
+                          },
+                          {
+                            "name": "RomaFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "UnionTwo",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "RomaFive"
+                          },
+                          {
+                            "name": "RomaSix"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "RomaSeven"
+                          },
+                          {
+                            "name": "RomaEight"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Bengalore",
+        "district": [
+          {
+            "name": "Hebbal",
+            "city": [
+              {
+                "name": "Hebbal Sadar",
+                "union": [
+                  {
+                    "name": "PachGacia",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "PachGaciaOne"
+                          },
+                          {
+                            "name": "PachGaciaTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "PachGaciaThree"
+                          },
+                          {
+                            "name": "PachGaciaFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "DhiarmaPur",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "DhiarmaPurOne"
+                          },
+                          {
+                            "name": "DhiarmaPurTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "DhiarmaPurThree"
+                          },
+                          {
+                            "name": "DhiarmaPurFour"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Sonaganji",
+                "union": [
+                  {
+                    "name": "BagaDana",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "BagaDanaOne"
+                          },
+                          {
+                            "name": "BagaDanaTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "BagaDanaThree"
+                          },
+                          {
+                            "name": "BagaDanaFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Motiganj",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "MotiGanjOne"
+                          },
+                          {
+                            "name": "MotiGanjTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "MotiGanjThree"
+                          },
+                          {
+                            "name": "MotiGanjFour"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Kengeri",
+            "city": [
+              {
+                "name": "Kengeri Sadar",
+                "union": [
+                  {
+                    "name": "MathaVanga",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "MathaVangaOne"
+                          },
+                          {
+                            "name": "MathaVangaTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "MathaVangaThree"
+                          },
+                          {
+                            "name": "MathaVangaFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "AsadPur",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "AsadPurOne"
+                          },
+                          {
+                            "name": "AsadPurTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "AsadPurThree"
+                          },
+                          {
+                            "name": "AsadPurFour"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Kengeri North",
+                "union": [
+                  {
+                    "name": "DoulatPur",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "DoulatPurOne"
+                          },
+                          {
+                            "name": "DoulatPurTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "DoulatPurThree"
+                          },
+                          {
+                            "name": "DoulatPurFour"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "SundalPur",
+                    "zipcode": [
+                      {
+                        "name": "1234",
+                        "villages": [
+                          {
+                            "name": "SundalPurOne"
+                          },
+                          {
+                            "name": "SundalPurTwo"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "4321",
+                        "villages": [
+                          {
+                            "name": "SundalPurThree"
+                          },
+                          {
+                            "name": "SundalPurFour"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
+  
 ]
