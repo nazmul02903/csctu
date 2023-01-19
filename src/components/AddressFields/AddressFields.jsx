@@ -7,54 +7,28 @@ import downLoadIcon from "../../assets/icon/downloadIcon.svg";
 import { GlobalStates } from "../../context";
 
 const AddressFields = ({ billState }) => {
-  const [division, setDivision] = useState(null);
-  const [district, setDistrict] = useState(null);
-  const [city, setCity] = useState(null);
-  const [union, setUnion] = useState(null);
-  const [zipcode, setZipcode] = useState(null);
-  const [village, setVillage] = useState(null);
-
   const { formState, setFormState, setShowDefaultVal, showDefaultVal } =
     GlobalStates();
-  const { register } = useForm();
+  const { register, watch } = useForm();
 
   const bill_or_ship = billState ? "billing" : "shipping";
+  const formData = watch();
 
-  useEffect(() => {
-    if (formState[bill_or_ship].country) {
-      setDivision(
-        jsonData?.filter((e) => e.name === formState[bill_or_ship].country)[0]
-          ?.state
-      );
-    }
-    setDistrict(
-      division?.filter((e) => e.name === formState[bill_or_ship].state)[0]
-        ?.district
-    );
-    setCity(
-      district?.filter((e) => e.name === formState[bill_or_ship].district)[0]
-        ?.city
-    );
-    setUnion(
-      city?.filter((e) => e.name === formState[bill_or_ship].city)[0]?.union
-    );
-    setZipcode(
-      union?.filter((e) => e.name === formState[bill_or_ship].union)[0]?.zipcode
-    );
-    setVillage(
-      zipcode?.filter((e) => e.name === formState[bill_or_ship].zipcode)[0]
-        ?.villages
-    );
-  }, [formState, city, district, union, zipcode, village, division,bill_or_ship]);
-
+  // useEffect(() => {
+  //   const formVal = { ...formState };
+  //   formVal[bill_or_ship] = { ...formVal[bill_or_ship], ...formData };
+  // }, [formData]);
   return (
     <form
-      className="address"
-      onClick={() => {
+      onBlur={() => {
         if (billState) {
-          setShowDefaultVal(false);
+          const formVal = { ...formState };
+          formVal[bill_or_ship] = { ...formVal[bill_or_ship], ...formData };
+          console.log(formVal);
+          setFormState(formVal);
         }
       }}
+      className="address"
     >
       <div className="address__title">
         {billState ? (
@@ -66,7 +40,13 @@ const AddressFields = ({ billState }) => {
               className="copy-btn"
               onClick={() => {
                 const billingVal = { ...formState.billing };
-                setFormState({ ...formState, shipping: billingVal });
+                const billingOpt = { ...formState.billingOptions };
+                setFormState({
+                  ...formState,
+                  shipping: billingVal,
+                  shippingOptions: billingOpt,
+                });
+
                 setShowDefaultVal(true);
               }}
             >
@@ -84,7 +64,7 @@ const AddressFields = ({ billState }) => {
           id="attention"
           className="default-input"
           placeholder="Enter Persons name"
-          defaultValue={showDefaultVal ? formState.attention : ""}
+          defaultValue={showDefaultVal ? formState[bill_or_ship].attention : ""}
           {...register("attention")}
         />
       </div>
@@ -101,7 +81,11 @@ const AddressFields = ({ billState }) => {
         <SelectComponent
           billState={billState}
           name={"state"}
-          options={division}
+          options={
+            billState
+              ? formState.billingOptions?.country?.state
+              : formState.shippingOptions?.country?.state
+          }
         />
       </div>
       <div className="form-item">
@@ -109,31 +93,60 @@ const AddressFields = ({ billState }) => {
         <SelectComponent
           billState={billState}
           name={"district"}
-          options={district}
+          options={
+            billState
+              ? formState.billingOptions?.state?.district
+              : formState.shippingOptions?.state?.district
+          }
         />
       </div>
       <div className="form-item">
         <label htmlFor="country">City/Sub District/Thana</label>
-        <SelectComponent billState={billState} name={"city"} options={city} />
+        <SelectComponent
+          billState={billState}
+          name={"city"}
+          options={
+            billState
+              ? formState.billingOptions?.district?.city
+              : formState.shippingOptions?.district?.city
+          }
+        />
       </div>
       <div className="form-item">
         <label htmlFor="country">Union/Area/Town</label>
-        <SelectComponent billState={billState} name={"union"} options={union} />
+        <SelectComponent
+          billState={billState}
+          name={"union"}
+          options={
+            billState
+              ? formState.billingOptions?.city?.union
+              : formState.shippingOptions?.city?.union
+          }
+        />
       </div>
       <div className="form-item">
         <label htmlFor="country">Zip Code</label>
         <SelectComponent
           billState={billState}
           name={"zipcode"}
-          options={zipcode}
+          options={
+            billState
+              ? formState.billingOptions?.union?.zipcode
+              : formState.shippingOptions?.union?.zipcode
+          }
         />
       </div>
+
       <div className="form-item">
         <label htmlFor="country">Street Address/Village</label>
         <SelectComponent
           billState={billState}
           name={"village"}
-          options={village}
+          options={
+            billState
+              ? formState.billingOptions?.zipcode?.villages
+              : formState.shippingOptions?.zipcode?.villages
+          }
         />
       </div>
       <div className="form-item">
@@ -141,8 +154,8 @@ const AddressFields = ({ billState }) => {
         <input
           type="text"
           id="house"
-          defaultValue={showDefaultVal ? formState.house : ""}
           className="default-input"
+          defaultValue={showDefaultVal ? formState[bill_or_ship].house : ""}
           {...register("house")}
         />
       </div>
@@ -152,7 +165,7 @@ const AddressFields = ({ billState }) => {
           type="tel"
           id="phone"
           className="default-input"
-          defaultValue={showDefaultVal ? formState.phone : ""}
+          defaultValue={showDefaultVal ? formState[bill_or_ship].phone : ""}
           {...register("phone")}
         />
       </div>
@@ -161,7 +174,7 @@ const AddressFields = ({ billState }) => {
         <input
           type="tel"
           id="fax"
-          defaultValue={showDefaultVal ? formState.fax : ""}
+          defaultValue={showDefaultVal ? formState[bill_or_ship].fax : ""}
           className="default-input"
           {...register("fax")}
         />

@@ -10,8 +10,7 @@ const SelectComponent = ({ options, name, defVal, billState }) => {
   const selectRef = useRef(null);
   const selectInputRef = useRef(null);
 
-  const { showDefaultVal, setFormState, formState } =
-    GlobalStates();
+  const { showDefaultVal, setFormState, formState } = GlobalStates();
 
   useEffect(() => {
     document.addEventListener("click", (e) => {
@@ -20,6 +19,15 @@ const SelectComponent = ({ options, name, defVal, billState }) => {
       }
     });
   }, [selectRef]);
+
+  useEffect(() => {
+    setSelectedOption("");
+    if (billState) {
+      const formVal = { ...formState };
+      formVal.billing[name] = "";
+      setFormState(formVal);
+    }
+  }, [options]);
 
   useEffect(() => {
     if (options) {
@@ -32,18 +40,10 @@ const SelectComponent = ({ options, name, defVal, billState }) => {
   }, [query, options]);
 
   useEffect(() => {
-    const bill_or_ship = billState ? "billing" : "shipping";
-    setSelectedOption("");
-    const formVal = { ...formState };
-    formVal[bill_or_ship][name] = "";
-    setFormState(formVal);
-  }, [options]);
-
-  useEffect(() => {
     if (!billState) {
       setSelectedOption(formState.shipping[name]);
     }
-  }, [showDefaultVal]);
+  }, [showDefaultVal, formState]);
 
   return (
     <div className="select-wrapper" ref={selectRef}>
@@ -84,13 +84,34 @@ const SelectComponent = ({ options, name, defVal, billState }) => {
                 onClick={(e) => {
                   setSelectedOption(e.target.getAttribute("value"));
                   setShowDropdown(false);
-                  const formVal = { ...formState };
+
                   if (billState) {
-                    formVal.billing[name] = e.target.getAttribute("value");
+                    const formVal = { ...formState.billing };
+                    formVal[name] = e.target.getAttribute("value");
+                    const formOption = { ...formState.billingOptions };
+                    formOption[name] = options.filter(
+                      (each) => each.name === e.target.getAttribute("value")
+                    )[0];
+
+                    setFormState({
+                      ...formState,
+                      billing: formVal,
+                      billingOptions: formOption,
+                    });
                   } else {
-                    formVal.shipping[name] = e.target.getAttribute("value");
+                    const formVal = { ...formState.shipping };
+                    formVal[name] = e.target.getAttribute("value");
+                    const formOption = { ...formState.shippingOptions };
+                    formOption[name] = options.filter(
+                      (each) => each.name === e.target.getAttribute("value")
+                    )[0];
+
+                    setFormState({
+                      ...formState,
+                      shipping: formVal,
+                      shippingOptions: formOption,
+                    });
                   }
-                  setFormState(formVal);
                   setData(options);
                 }}
               >

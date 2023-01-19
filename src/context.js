@@ -8,16 +8,15 @@ const initialState = {
   union: "",
   zipcode: "",
   village: "",
+
 };
 
 const ContextProvider = ({ children }) => {
   const [formState, setFormState] = useState({
     billing: initialState,
     shipping: initialState,
-    options: {
-      billing: [],
-      shipping: [],
-    }
+    billingOptions: {},
+    shippingOptions: {},
   });
   const [showDefaultVal, setShowDefaultVal] = useState(false);
   return (
