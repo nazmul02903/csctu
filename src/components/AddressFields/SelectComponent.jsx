@@ -10,7 +10,7 @@ const SelectComponent = ({ options, name, defVal, billState }) => {
   const selectRef = useRef(null);
   const selectInputRef = useRef(null);
 
-  const { showDefaultVal, setShowDefaultVal, setFormState, formState } =
+  const { showDefaultVal, setFormState, formState } =
     GlobalStates();
 
   useEffect(() => {

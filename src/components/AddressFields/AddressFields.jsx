@@ -45,7 +45,7 @@ const AddressFields = ({ billState }) => {
       zipcode?.filter((e) => e.name === formState[bill_or_ship].zipcode)[0]
         ?.villages
     );
-  }, [formState, city, district, union, zipcode, village, division]);
+  }, [formState, city, district, union, zipcode, village, division,bill_or_ship]);
 
   return (
     <form
@@ -54,9 +54,6 @@ const AddressFields = ({ billState }) => {
         if (billState) {
           setShowDefaultVal(false);
         }
-      }}
-      onBlur={() => {
-        // setFormState(formData);
       }}
     >
       <div className="address__title">
