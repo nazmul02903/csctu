@@ -1,9 +1,24 @@
 import { createContext, useContext, useState } from "react";
 
 const GlobalContenxt = createContext();
+const initialState = {
+  country: "",
+  state: "",
+  city: "",
+  union: "",
+  zipcode: "",
+  village: "",
+};
 
 const ContextProvider = ({ children }) => {
-  const [formState, setFormState] = useState({});
+  const [formState, setFormState] = useState({
+    billing: initialState,
+    shipping: initialState,
+    options: {
+      billing: [],
+      shipping: [],
+    }
+  });
   const [showDefaultVal, setShowDefaultVal] = useState(false);
   return (
     <GlobalContenxt.Provider

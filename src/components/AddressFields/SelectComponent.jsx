@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { useController } from "react-hook-form";
 import { GlobalStates } from "../../context";
 
-const SelectComponent = ({ options, name, control, defVal }) => {
+const SelectComponent = ({ options, name, defVal, billState }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [query, setQuery] = useState("");
@@ -11,13 +10,8 @@ const SelectComponent = ({ options, name, control, defVal }) => {
   const selectRef = useRef(null);
   const selectInputRef = useRef(null);
 
-
-  const { showDefaultVal } = GlobalStates();
-  const { field } = useController({
-    control,
-    name,
-  });
-
+  const { showDefaultVal, setShowDefaultVal, setFormState, formState } =
+    GlobalStates();
 
   useEffect(() => {
     document.addEventListener("click", (e) => {
@@ -28,43 +22,45 @@ const SelectComponent = ({ options, name, control, defVal }) => {
   }, [selectRef]);
 
   useEffect(() => {
-    setData(
-      options?.filter((option) =>
-        option.name.toLowerCase().includes(query.toLowerCase())
-      )
-    );
+    if (options) {
+      setData(
+        options?.filter((option) =>
+          option.name.toLowerCase().includes(query.toLowerCase())
+        )
+      );
+    }
   }, [query, options]);
 
   useEffect(() => {
+    const bill_or_ship = billState ? "billing" : "shipping";
     setSelectedOption("");
-  }, [options])
+    const formVal = { ...formState };
+    formVal[bill_or_ship][name] = "";
+    setFormState(formVal);
+  }, [options]);
 
   useEffect(() => {
-    if (showDefaultVal) {
-      setSelectedOption(defVal);
+    if (!billState) {
+      setSelectedOption(formState.shipping[name]);
     }
-  }, [showDefaultVal,defVal]);
+  }, [showDefaultVal]);
 
   return (
     <div className="select-wrapper" ref={selectRef}>
       <div
         className={`select-input ${showDropdown && "select-open"} ${
           options && "select-arrow"
-        }`}
+        } `}
       >
         <input
           onClick={() => {
             setShowDropdown(!showDropdown);
           }}
-          name={field.name}
-          onBlur={field.onBlur}
-          onFocus={field.onChange}
-          onChange={field.onChange}
           ref={selectInputRef}
           defaultValue={selectedOption}
           placeholder="Please Search"
           readOnly
-          disabled={!options && !defVal}
+          disabled={!options}
           className={`default-input ${showDropdown && "active-border"}`}
         />
       </div>
@@ -88,9 +84,13 @@ const SelectComponent = ({ options, name, control, defVal }) => {
                 onClick={(e) => {
                   setSelectedOption(e.target.getAttribute("value"));
                   setShowDropdown(false);
-                  setTimeout(() => {
-                    selectInputRef.current.focus();
-                  }, 10);
+                  const formVal = { ...formState };
+                  if (billState) {
+                    formVal.billing[name] = e.target.getAttribute("value");
+                  } else {
+                    formVal.shipping[name] = e.target.getAttribute("value");
+                  }
+                  setFormState(formVal);
                   setData(options);
                 }}
               >

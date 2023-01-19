@@ -11,36 +11,54 @@ const AddressFields = ({ billState }) => {
   const [district, setDistrict] = useState(null);
   const [city, setCity] = useState(null);
   const [union, setUnion] = useState(null);
-  const [zip, setZip] = useState(null);
+  const [zipcode, setZipcode] = useState(null);
   const [village, setVillage] = useState(null);
 
   const { formState, setFormState, setShowDefaultVal, showDefaultVal } =
     GlobalStates();
-  const methods = useForm();
-  const { register, watch, control } = methods;
-  const formData = watch();
-  
-  
+  const { register } = useForm();
+
+  const bill_or_ship = billState ? "billing" : "shipping";
+
   useEffect(() => {
-    if (formData.country) {
+    if (formState[bill_or_ship].country) {
       setDivision(
-        jsonData?.filter((e) => e.name === formData.country)[0]?.state
+        jsonData?.filter((e) => e.name === formState[bill_or_ship].country)[0]
+          ?.state
       );
     }
     setDistrict(
-      division?.filter((e) => e.name === formData.state)[0]?.district
+      division?.filter((e) => e.name === formState[bill_or_ship].state)[0]
+        ?.district
     );
-    setCity(district?.filter((e) => e.name === formData.district)[0]?.city);
-    setUnion(city?.filter((e) => e.name === formData.city)[0]?.union);
-    setZip(union?.filter((e) => e.name === formData.union)[0]?.zipcode);
-    setVillage(zip?.filter((e) => e.name === formData.zip)[0]?.villages)
-  }, [formData,city, district,union, zip, village,division]);
+    setCity(
+      district?.filter((e) => e.name === formState[bill_or_ship].district)[0]
+        ?.city
+    );
+    setUnion(
+      city?.filter((e) => e.name === formState[bill_or_ship].city)[0]?.union
+    );
+    setZipcode(
+      union?.filter((e) => e.name === formState[bill_or_ship].union)[0]?.zipcode
+    );
+    setVillage(
+      zipcode?.filter((e) => e.name === formState[bill_or_ship].zipcode)[0]
+        ?.villages
+    );
+  }, [formState, city, district, union, zipcode, village, division]);
 
   return (
-    <form className="address" onBlur={() => {
-      setShowDefaultVal(false)
-      setFormState(formData)
-    }}>
+    <form
+      className="address"
+      onClick={() => {
+        if (billState) {
+          setShowDefaultVal(false);
+        }
+      }}
+      onBlur={() => {
+        // setFormState(formData);
+      }}
+    >
       <div className="address__title">
         {billState ? (
           <h3>billing Address</h3>
@@ -50,6 +68,8 @@ const AddressFields = ({ billState }) => {
             <div
               className="copy-btn"
               onClick={() => {
+                const billingVal = { ...formState.billing };
+                setFormState({ ...formState, shipping: billingVal });
                 setShowDefaultVal(true);
               }}
             >
@@ -74,17 +94,15 @@ const AddressFields = ({ billState }) => {
       <div className="form-item">
         <label htmlFor="country">Country</label>
         <SelectComponent
-          defVal={showDefaultVal ? formState.country : ""}
-          control={control}
           name={"country"}
+          billState={billState}
           options={jsonData}
         />
       </div>
       <div className="form-item">
         <label htmlFor="country">Division/State</label>
         <SelectComponent
-          defVal={showDefaultVal ? formState.state : ""}
-          control={control}
+          billState={billState}
           name={"state"}
           options={division}
         />
@@ -92,44 +110,31 @@ const AddressFields = ({ billState }) => {
       <div className="form-item">
         <label htmlFor="country">District</label>
         <SelectComponent
-          defVal={showDefaultVal ? formState.district : ""}
-          control={control}
+          billState={billState}
           name={"district"}
           options={district}
         />
       </div>
       <div className="form-item">
         <label htmlFor="country">City/Sub District/Thana</label>
-        <SelectComponent
-          defVal={showDefaultVal ? formState.city : ""}
-          control={control}
-          name={"city"}
-          options={city}
-        />
+        <SelectComponent billState={billState} name={"city"} options={city} />
       </div>
       <div className="form-item">
         <label htmlFor="country">Union/Area/Town</label>
-        <SelectComponent
-          defVal={showDefaultVal ? formState.union : ""}
-          control={control}
-          name={"union"}
-          options={union}
-        />
+        <SelectComponent billState={billState} name={"union"} options={union} />
       </div>
       <div className="form-item">
         <label htmlFor="country">Zip Code</label>
         <SelectComponent
-          defVal={showDefaultVal ? formState.zip : ""}
-          control={control}
-          name={"zip"}
-          options={zip}
+          billState={billState}
+          name={"zipcode"}
+          options={zipcode}
         />
       </div>
       <div className="form-item">
         <label htmlFor="country">Street Address/Village</label>
         <SelectComponent
-          defVal={showDefaultVal ? formState.village : ""}
-          control={control}
+          billState={billState}
           name={"village"}
           options={village}
         />
