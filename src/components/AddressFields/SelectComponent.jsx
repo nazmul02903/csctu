@@ -10,7 +10,13 @@ const SelectComponent = ({ options, name, defVal, billState }) => {
   const selectRef = useRef(null);
   const selectInputRef = useRef(null);
 
-  const { showDefaultVal, setFormState, formState } = GlobalStates();
+  const {
+    showDefaultVal,
+    setShowDefaultVal,
+    setFormState,
+    formState,
+    formState: { billing },
+  } = GlobalStates();
 
   useEffect(() => {
     document.addEventListener("click", (e) => {
@@ -21,12 +27,22 @@ const SelectComponent = ({ options, name, defVal, billState }) => {
   }, [selectRef]);
 
   useEffect(() => {
-    setSelectedOption("");
-    if (billState) {
-      const formVal = { ...formState };
-      formVal.billing[name] = "";
-      setFormState(formVal);
+    if (!billState) {
+      setSelectedOption(formState.shipping[name]);
     }
+  }, [formState]);
+
+  useEffect(() => {
+    setSelectedOption("");
+    const formVal = { ...formState };
+    if (billState) {
+      formVal.billing[name] = "";
+    } else {
+      if (!showDefaultVal) {
+        formVal.shipping[name] = "";
+      }
+    }
+    setFormState(formVal);
   }, [options]);
 
   useEffect(() => {
@@ -40,10 +56,14 @@ const SelectComponent = ({ options, name, defVal, billState }) => {
   }, [query, options]);
 
   useEffect(() => {
-    if (!billState) {
-      setSelectedOption(formState.shipping[name]);
+    if (options) {
+      setData(
+        options?.filter((option) =>
+          option.name.toLowerCase().includes(query.toLowerCase())
+        )
+      );
     }
-  }, [showDefaultVal, formState]);
+  }, [query, options]);
 
   return (
     <div className="select-wrapper" ref={selectRef}>
@@ -55,6 +75,9 @@ const SelectComponent = ({ options, name, defVal, billState }) => {
         <input
           onClick={() => {
             setShowDropdown(!showDropdown);
+            if (!billState) {
+              setShowDefaultVal(false);
+            }
           }}
           ref={selectInputRef}
           defaultValue={selectedOption}

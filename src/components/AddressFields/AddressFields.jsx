@@ -9,23 +9,23 @@ import { GlobalStates } from "../../context";
 const AddressFields = ({ billState }) => {
   const { formState, setFormState, setShowDefaultVal, showDefaultVal } =
     GlobalStates();
-  const { register, watch } = useForm();
+  const { register, watch, setValue } = useForm();
 
   const bill_or_ship = billState ? "billing" : "shipping";
   const formData = watch();
 
-  // useEffect(() => {
-  //   const formVal = { ...formState };
-  //   formVal[bill_or_ship] = { ...formVal[bill_or_ship], ...formData };
-  // }, [formData]);
   return (
     <form
       onBlur={() => {
         if (billState) {
           const formVal = { ...formState };
           formVal[bill_or_ship] = { ...formVal[bill_or_ship], ...formData };
-          console.log(formVal);
           setFormState(formVal);
+        }
+      }}
+      onClick={() => {
+        if (!billState) {
+          showDefaultVal(false);
         }
       }}
       className="address"
@@ -48,6 +48,12 @@ const AddressFields = ({ billState }) => {
                 });
 
                 setShowDefaultVal(true);
+                if (!billState) {
+                  setValue("attention", formState.billing.attention);
+                  setValue("house", formState.billing.house);
+                  setValue("phone", formState.billing.phone);
+                  setValue("fax", formState.billing.fax);
+                }
               }}
             >
               {" "}
@@ -64,7 +70,6 @@ const AddressFields = ({ billState }) => {
           id="attention"
           className="default-input"
           placeholder="Enter Persons name"
-          defaultValue={showDefaultVal ? formState[bill_or_ship].attention : ""}
           {...register("attention")}
         />
       </div>
@@ -155,7 +160,6 @@ const AddressFields = ({ billState }) => {
           type="text"
           id="house"
           className="default-input"
-          defaultValue={showDefaultVal ? formState[bill_or_ship].house : ""}
           {...register("house")}
         />
       </div>
@@ -165,7 +169,6 @@ const AddressFields = ({ billState }) => {
           type="tel"
           id="phone"
           className="default-input"
-          defaultValue={showDefaultVal ? formState[bill_or_ship].phone : ""}
           {...register("phone")}
         />
       </div>
@@ -174,7 +177,6 @@ const AddressFields = ({ billState }) => {
         <input
           type="tel"
           id="fax"
-          defaultValue={showDefaultVal ? formState[bill_or_ship].fax : ""}
           className="default-input"
           {...register("fax")}
         />
